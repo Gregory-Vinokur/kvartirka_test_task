@@ -1,0 +1,44 @@
+.asteroidList {
+  color: inherit;
+  max-width: 40rem;
+}
+
+.asteroidItems {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  overflow-y: scroll;
+  max-height: 57rem;
+}
+
+.asteroidListTitle {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+}
+
+.asteroidListDist {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 2.4rem;
+}
+
+.inactive {
+  font-weight: 400;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.asteroidItems::-webkit-scrollbar {
+  width: 3px;
+}
+
+.asteroidItems::-webkit-scrollbar-track {
+  border-radius: 20px;
+  background: var(--background-color);
+}
+
+.asteroidItems::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  border: 3px solid var(--color-secondary);
+}
