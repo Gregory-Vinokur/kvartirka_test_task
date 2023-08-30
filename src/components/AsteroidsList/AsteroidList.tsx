@@ -5,14 +5,57 @@ import {
   AsteroidsListDataType,
   IAsteroidData,
 } from '@/interfaces/IAsteroidData';
-import { useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { fetchAsteroidsData } from '@/services/fetchAsteroidsData';
+import ProgressBar from '../ProgressBar/ProgressBar';
+import throttle from '@/utils/throttle';
 
 const AsteroidList = ({ asteroids }: AsteroidsListDataType) => {
   const [distanceUnit, setDistanceUnit] = useState('km');
+  const [loadedAsteroids, setLoadedAsteroids] = useState(asteroids);
+  const [isLoading, setIsLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   const switchDistanceUnit = () => {
     setDistanceUnit((prevUnit) => (prevUnit === 'km' ? 'lunar' : 'km'));
   };
+
+  const loadMoreAsteroids = useCallback(async () => {
+    setIsLoading(true);
+
+    const newAsteroids = await fetchAsteroidsData(page);
+
+    setIsLoading(false);
+
+    setLoadedAsteroids((prevAsteroids) => [...prevAsteroids, ...newAsteroids]);
+
+    setPage((prevPage) => prevPage + 1);
+  }, [page]);
+
+  useEffect(() => {
+    const container = containerRef.current;
+
+    if (!container) {
+      return;
+    }
+
+    const handleScroll = throttle(() => {
+      if (
+        container.scrollTop + container.clientHeight >=
+          container.scrollHeight &&
+        !isLoading
+      ) {
+        loadMoreAsteroids();
+      }
+    }, 350);
+
+    container.addEventListener('scroll', handleScroll);
+
+    return () => {
+      container.removeEventListener('scroll', handleScroll);
+    };
+  }, [isLoading, loadMoreAsteroids]);
 
   return (
     <div className={styles.asteroidList}>
@@ -32,8 +75,8 @@ const AsteroidList = ({ asteroids }: AsteroidsListDataType) => {
           в лунных орбитах
         </a>
       </div>
-      <div className={styles.asteroidItems}>
-        {asteroids.map((asteroid: IAsteroidData) => (
+      <div ref={containerRef} className={styles.asteroidItems}>
+        {loadedAsteroids.map((asteroid: IAsteroidData) => (
           <AsteroidItem
             key={asteroid.id}
             name={asteroid.name}
@@ -44,6 +87,7 @@ const AsteroidList = ({ asteroids }: AsteroidsListDataType) => {
             distanceUnit={distanceUnit}
           />
         ))}
+        {isLoading && <ProgressBar />}
       </div>
     </div>
   );
