@@ -38,9 +38,10 @@ const AsteroidList = ({ asteroids }: AsteroidsListDataType) => {
             key={asteroid.id}
             name={asteroid.name}
             approachDate={asteroid.approachDate}
-            missDistance={asteroid.missDistance.km}
+            missDistance={asteroid.missDistance[distanceUnit as 'lunar' | 'km']}
             diameter={asteroid.diameter}
             isHazard={asteroid.isHazard}
+            distanceUnit={distanceUnit}
           />
         ))}
       </div>
