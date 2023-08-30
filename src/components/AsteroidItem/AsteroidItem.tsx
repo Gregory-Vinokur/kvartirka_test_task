@@ -2,17 +2,52 @@ import styles from './AsteroidItem.module.css';
 import Image from 'next/image';
 import ArrowSvg from '../../assets/img/arrow.svg';
 import AsteroidImage from '../../assets/img/Asteroid.png';
-import Link from 'next/link';
+import { IAsteroidItem } from '@/interfaces/IAsteroidItem';
 
-const AsteroidItem = () => {
+const AsteroidItem = ({
+  name,
+  approachDate,
+  missDistance,
+  diameter,
+  isHazard,
+}: IAsteroidItem) => {
   const isInCart = false;
-  const isHazard = false;
+
+  function addThousandSeparators(inputString: string) {
+    return inputString.replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' км';
+  }
+
+  function formatDate(inputDate: string) {
+    const monthsCodes = [
+      'янв',
+      'фев',
+      'мар',
+      'апр',
+      'май',
+      'июн',
+      'июл',
+      'авг',
+      'сен',
+      'окт',
+      'ноя',
+      'дек',
+    ];
+
+    const dateParts = inputDate.split('-');
+    const day = dateParts[2];
+    const monthIndex = parseInt(dateParts[1], 10) - 1;
+    const month = monthsCodes[monthIndex];
+    const year = dateParts[0];
+
+    return `${day} ${month} ${year}`;
+  }
+
   return (
     <div className={styles.asteroid}>
-      <p className={styles.asteroidData}>12 сентября 2023</p>
+      <p className={styles.asteroidData}>{formatDate(approachDate)}</p>
       <div className={styles.info}>
         <div className={styles.infoDistance}>
-          <p>5 652 334 км</p>
+          <p>{addThousandSeparators(Math.floor(+missDistance).toString())}</p>
           <ArrowSvg />
         </div>
         <Image
@@ -21,8 +56,10 @@ const AsteroidItem = () => {
           src={AsteroidImage}
         />
         <div className={styles.infoOtherStats}>
-          <a className={styles.infoName}>2021 FQ</a>
-          <p className={styles.infoDiameter}>{`Ø 85 м`}</p>
+          <a className={styles.infoName}>{name}</a>
+          <p className={styles.infoDiameter}>{`Ø ${Math.floor(
+            diameter
+          ).toLocaleString()} м`}</p>
         </div>
       </div>
       <div className={styles.asteroidOptions}>

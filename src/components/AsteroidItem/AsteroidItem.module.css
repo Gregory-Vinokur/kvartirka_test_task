@@ -46,6 +46,10 @@
   flex-flow: column nowrap;
 }
 
+.hazard {
+  font-size: 1.5rem;
+}
+
 .order {
   background-color: var(--color-secondary);
   color: var(--color-primary);
