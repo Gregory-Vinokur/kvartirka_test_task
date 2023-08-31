@@ -79,6 +79,7 @@ const AsteroidList = ({ asteroids }: AsteroidsListDataType) => {
         {loadedAsteroids.map((asteroid: IAsteroidData) => (
           <AsteroidItem
             key={asteroid.id}
+            id={asteroid.id}
             name={asteroid.name}
             approachDate={asteroid.approachDate}
             missDistance={asteroid.missDistance[distanceUnit as 'lunar' | 'km']}

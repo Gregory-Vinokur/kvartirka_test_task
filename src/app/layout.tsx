@@ -2,6 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { Passion_One } from 'next/font/google';
+import MainLayout from '@/layouts/MainLayout/MainLayout';
 
 const helvetica = localFont({
   src: [
@@ -40,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${helvetica.variable} ${passionOne.variable}`}>
-        {children}
+        <MainLayout>{children}</MainLayout>
       </body>
     </html>
   );

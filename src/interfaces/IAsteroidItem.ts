@@ -1,5 +1,6 @@
 export interface IAsteroidItem {
   key: string;
+  id: string;
   name: string;
   approachDate: string;
   diameter: number;
