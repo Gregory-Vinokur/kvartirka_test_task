@@ -13,7 +13,7 @@ async function AsteroidPage({ params: { id } }: AsteroidPageProps) {
   const { asteroid, approaches } = await fetchAsteroidDataById(id);
   return (
     <div className={styles.asteroidPage}>
-      <AsteroidDetails asteroid={asteroid} />
+      <AsteroidDetails asteroid={asteroid} showButton={true} />
       <AsteroidApproaches approaches={approaches} />
     </div>
   );

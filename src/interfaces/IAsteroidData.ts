@@ -12,6 +12,7 @@ export interface IAsteroidData {
     sec: string;
     hour: string;
   };
+  distanceUnit?: string | null;
   fullApproachDate?: string;
   orbitingBody?: string;
 }

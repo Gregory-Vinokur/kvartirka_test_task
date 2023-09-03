@@ -22,6 +22,15 @@
   border: none;
 }
 
+.cartButton:disabled {
+  opacity: 1;
+  cursor: auto;
+}
+
+.cartButton:disabled:hover {
+  opacity: 1;
+}
+
 .cartButton:hover {
   opacity: 0.8;
 }

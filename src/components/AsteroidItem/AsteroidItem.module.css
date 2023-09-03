@@ -66,6 +66,11 @@
   opacity: 0.7;
 }
 
+.order:disabled:hover {
+  opacity: 1;
+  cursor: auto;
+}
+
 .orderActive {
   color: var(--color-secondary);
   background-color: rgba(248, 102, 0, 0.15);

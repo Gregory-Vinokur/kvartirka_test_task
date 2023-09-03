@@ -6,7 +6,7 @@ export interface IAsteroidItem {
   diameter: number;
   isHazard?: boolean;
   missDistance: string;
-  distanceUnit?: string;
+  distanceUnit?: string | null;
   velocity?: {
     sec: string;
     hour: string;

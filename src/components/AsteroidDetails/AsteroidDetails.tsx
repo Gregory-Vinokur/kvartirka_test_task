@@ -1,17 +1,24 @@
-import { IAsteroidData } from '@/interfaces/IAsteroidData';
 import styles from './AsteroidDetails.module.css';
 import AsteroidImage from '../../assets/img/Asteroid.png';
 import Image from 'next/image';
 import Link from 'next/link';
+import { IAsteroidItem } from '@/interfaces/IAsteroidItem';
 
-const AsteroidDetails = ({ asteroid }: { asteroid: IAsteroidData }) => {
+type AsteroidDetailsProps = {
+  asteroid: IAsteroidItem;
+  showButton: boolean;
+};
+
+const AsteroidDetails = ({ asteroid, showButton }: AsteroidDetailsProps) => {
   return (
     <div className={styles.container}>
-      <div className={styles.buttonContainer}>
-        <Link href={'/'}>
-          <button className={styles.button}>Назад</button>
-        </Link>
-      </div>
+      {showButton && (
+        <div className={styles.buttonContainer}>
+          <Link href={'/'}>
+            <button className={styles.button}>Назад</button>
+          </Link>
+        </div>
+      )}
       <div>
         <Image alt="asteroid" src={AsteroidImage} width={60} height={70} />
       </div>

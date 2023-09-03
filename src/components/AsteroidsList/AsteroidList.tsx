@@ -9,17 +9,14 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { fetchAsteroidsData } from '@/services/fetchAsteroidsData';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import throttle from '@/utils/throttle';
+import { useCart } from '@/store/cartProvider';
 
 const AsteroidList = ({ asteroids }: AsteroidsListDataType) => {
-  const [distanceUnit, setDistanceUnit] = useState('km');
   const [loadedAsteroids, setLoadedAsteroids] = useState(asteroids);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
   const containerRef = useRef<HTMLDivElement | null>(null);
-
-  const switchDistanceUnit = () => {
-    setDistanceUnit((prevUnit) => (prevUnit === 'km' ? 'lunar' : 'km'));
-  };
+  const { distanceUnit, switchDistanceUnit } = useCart();
 
   const loadMoreAsteroids = useCallback(async () => {
     setIsLoading(true);

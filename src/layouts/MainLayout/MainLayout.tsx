@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import styles from './MainLayout.module.css';
 import Earth from '../../assets/img/planeta_zemlia_kosmos_1.png';
+import { CartProvider } from '@/store/cartProvider';
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -14,7 +15,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
         <div>
           <Image src={Earth} alt="Planet Earth" />
         </div>
-        {children}
+        <CartProvider>{children}</CartProvider>
       </section>
     </main>
   );
