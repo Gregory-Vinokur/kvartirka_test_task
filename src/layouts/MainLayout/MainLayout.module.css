@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  position: relative;
 }
 
 .asteroidSection {
@@ -27,4 +28,34 @@
   color: var(--color-primary);
   font-size: 1.6rem;
   line-height: 2.4rem;
+}
+
+@media (max-width: 67.5em) {
+  .asteroidSection {
+    gap: 5.8rem;
+  }
+}
+
+@media (max-width: 62.5em) {
+  .earthImage {
+    margin-left: -10rem;
+  }
+}
+
+@media (max-width: 56.25em) {
+  .earthImage {
+    margin-left: -20rem;
+  }
+}
+
+@media (max-width: 50em) {
+  .earthImage {
+    margin-left: -30rem;
+  }
+}
+
+@media (max-width: 43.75em) {
+  .earthImage {
+    margin-left: -33rem;
+  }
 }

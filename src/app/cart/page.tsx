@@ -2,12 +2,12 @@
 import Link from 'next/link';
 import styles from './page.module.css';
 import { useEffect, useState } from 'react';
-import AsteroidDetails from '@/components/AsteroidDetails/AsteroidDetails';
 import { useCart } from '@/store/cartProvider';
 import { IAsteroidItem } from '@/interfaces/IAsteroidItem';
+import AsteroidItem from '@/components/AsteroidItem/AsteroidItem';
 
 function CartPage() {
-  const { selectedItems, orderAsteroids } = useCart();
+  const { selectedItems, orderAsteroids, distanceUnit } = useCart();
 
   useEffect(() => {
     return () => {
@@ -19,10 +19,15 @@ function CartPage() {
     <div className={styles.cartPage}>
       <h3 className={styles.cartInfo}>Заказ отправлен!</h3>
       {selectedItems.map((asteroid: IAsteroidItem) => (
-        <AsteroidDetails
+        <AsteroidItem
           key={asteroid.id}
-          asteroid={asteroid}
-          showButton={false}
+          id={asteroid.id}
+          name={asteroid.name}
+          approachDate={asteroid.approachDate}
+          missDistance={asteroid.missDistance}
+          diameter={asteroid.diameter}
+          isHazard={asteroid.isHazard}
+          distanceUnit={distanceUnit}
         />
       ))}
       <Link href={'/'}>

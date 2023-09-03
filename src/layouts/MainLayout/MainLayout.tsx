@@ -12,7 +12,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
         <p className={styles.pageTitleDesc}>Взрываем астероиды с 1998 года.</p>
       </div>
       <section className={styles.asteroidSection}>
-        <div>
+        <div className={styles.earthImage}>
           <Image src={Earth} alt="Planet Earth" />
         </div>
         <CartProvider>{children}</CartProvider>

@@ -19,4 +19,5 @@ body {
   background-color: var(--background-color);
   font-family: var(--font-primary);
   color: var(--color-primary);
+  height: 100vh;
 }
