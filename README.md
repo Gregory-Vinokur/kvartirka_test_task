@@ -1,6 +1,6 @@
 # kvartirka_test_task
 
-## Деплой - [https://pre-junior-angular-test-task.netlify.app/](https://kvartirka-test-task-xi.vercel.app/)
+## Деплой - https://kvartirka-test-task-xi.vercel.app/
 
 ## Запуск проекта на локальном хосте
 
