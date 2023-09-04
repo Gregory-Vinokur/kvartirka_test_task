@@ -55,7 +55,7 @@ const AsteroidList = ({ asteroids }: AsteroidsListDataType) => {
   }, [isLoading, loadMoreAsteroids]);
 
   return (
-    <div className={styles.asteroidList}>
+    <div className={styles.asteroidList} suppressHydrationWarning={true}>
       <h3 className={styles.asteroidListTitle}>Ближайшие подлёты астероидов</h3>
       <div className={styles.asteroidListDist}>
         <a

@@ -60,7 +60,7 @@ const AsteroidItem = (props: IAsteroidItem) => {
   };
 
   return (
-    <div className={styles.asteroid}>
+    <div className={styles.asteroid} suppressHydrationWarning={true}>
       <p className={styles.asteroidData}>{formatDate(approachDate)}</p>
       <div className={styles.info}>
         <div className={styles.infoDistance}>

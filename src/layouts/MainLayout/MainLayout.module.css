@@ -51,6 +51,10 @@
   .earthImage {
     margin-left: -20rem;
   }
+  .footer {
+    position: static;
+    padding: 1.6rem;
+  }
 }
 
 @media (max-width: 50em) {

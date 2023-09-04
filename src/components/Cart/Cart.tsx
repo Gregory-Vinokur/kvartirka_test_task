@@ -9,7 +9,7 @@ const Cart = () => {
   const asteroidCount = selectedItems.length;
   const asteroidNounForm = getAsteroidNounForm(asteroidCount);
   return (
-    <div className={styles.cart}>
+    <div className={styles.cart} suppressHydrationWarning={true}>
       <div className={styles.cartText}>
         <p className={styles.cartTextTitle}>Корзина</p>
         <p className={styles.cartTextLength}>
