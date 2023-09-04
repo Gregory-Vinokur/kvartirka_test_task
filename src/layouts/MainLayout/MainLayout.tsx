@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import styles from './MainLayout.module.css';
 import Earth from '../../assets/img/planeta_zemlia_kosmos_1.png';
+import EarthLowQuality from '../../assets/img/Earth_low_quality.jpg';
 import { CartProvider } from '@/store/cartProvider';
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
@@ -16,7 +17,12 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
         </div>
         <section className={styles.asteroidSection}>
           <div className={styles.earthImage}>
-            <Image src={Earth} alt="Planet Earth" />
+            <Image
+              src={Earth}
+              alt="Planet Earth"
+              placeholder="blur"
+              blurDataURL={EarthLowQuality.src}
+            />
           </div>
           <CartProvider>{children}</CartProvider>
         </section>
