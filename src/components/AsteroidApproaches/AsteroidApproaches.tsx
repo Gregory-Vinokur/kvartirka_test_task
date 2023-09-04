@@ -12,7 +12,7 @@ const AsteroidApproaches = ({ approaches }: { approaches: IApproaches[] }) => {
             <h3 className={styles.approachTitle}>Сближение {index + 1}</h3>
             <p className={styles.approachDesc}>
               <span className={styles.desc}>Скорость относительно Земли:</span>{' '}
-              {Math.floor(approach.velocity).toLocaleString()} км/с
+              {Math.floor(approach.velocity).toLocaleString('ru-RU')} км/с
             </p>
             <p className={styles.approachDesc}>
               <span className={styles.desc}>Дата максимального сближения:</span>{' '}
@@ -20,7 +20,7 @@ const AsteroidApproaches = ({ approaches }: { approaches: IApproaches[] }) => {
             </p>
             <p className={styles.approachDesc}>
               <span className={styles.desc}>Расстояние до Земли:</span>{' '}
-              {Math.floor(approach.distance).toLocaleString()} км
+              {Math.floor(approach.distance).toLocaleString('ru-RU')} км
             </p>
             <p className={styles.approachDesc}>
               <span className={styles.desc}>Орбита:</span>{' '}

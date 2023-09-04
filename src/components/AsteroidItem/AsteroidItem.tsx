@@ -60,17 +60,19 @@ const AsteroidItem = (props: IAsteroidItem) => {
   };
 
   return (
-    <div className={styles.asteroid} suppressHydrationWarning={true}>
+    <div className={styles.asteroid}>
       <p className={styles.asteroidData}>{formatDate(approachDate)}</p>
       <div className={styles.info}>
         <div className={styles.infoDistance}>
           {!distanceUnit && <p>Загрузка...</p>}
           {distanceUnit &&
             (distanceUnit === 'km' ? (
-              <p>{formattedDistance.toLocaleString() + ' км'}</p>
+              <p suppressHydrationWarning={true}>
+                {formattedDistance.toLocaleString('ru-RU') + ' км'}
+              </p>
             ) : (
-              <p>
-                {formattedDistance.toLocaleString()}{' '}
+              <p suppressHydrationWarning={true}>
+                {formattedDistance.toLocaleString('ru-RU')}{' '}
                 {correctConjugation(formattedDistance)}
               </p>
             ))}
@@ -89,7 +91,7 @@ const AsteroidItem = (props: IAsteroidItem) => {
           </Link>
           <p className={styles.infoDiameter}>{`Ø ${Math.floor(
             diameter
-          ).toLocaleString()} м`}</p>
+          ).toLocaleString('ru-RU')} м`}</p>
         </div>
       </div>
       <div className={styles.asteroidOptions}>
@@ -99,6 +101,7 @@ const AsteroidItem = (props: IAsteroidItem) => {
             type="submit"
             onClick={handleOrder}
             disabled={isInCart}
+            suppressHydrationWarning={true}
           >
             {isInCart ? 'В Корзине' : 'Заказать'}
           </button>
@@ -107,6 +110,7 @@ const AsteroidItem = (props: IAsteroidItem) => {
           <button
             className={`${styles.order} ${styles.orderActive}`}
             disabled={true}
+            suppressHydrationWarning={true}
           >
             Заказ отправлен
           </button>

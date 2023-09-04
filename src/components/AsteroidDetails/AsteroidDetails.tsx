@@ -16,7 +16,7 @@ const AsteroidDetails = ({ asteroid }: AsteroidDetailsProps) => {
       </div>
       <div className={styles.details}>
         <h1>{asteroid.name}</h1>
-        <p>{`Ø ${Math.floor(asteroid.diameter).toLocaleString()} м`}</p>
+        <p>{`Ø ${Math.floor(asteroid.diameter).toLocaleString('ru-RU')} м`}</p>
         {asteroid.isHazard ? (
           <p>&#9888;&#65039; Опасен</p>
         ) : (
