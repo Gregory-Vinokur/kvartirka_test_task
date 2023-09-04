@@ -22,6 +22,7 @@ const AsteroidItem = (props: IAsteroidItem) => {
     isHazard,
     distanceUnit,
     id,
+    showButton,
   } = props;
 
   let asteroidImageSize: { width?: number; height?: number } = {
@@ -92,12 +93,7 @@ const AsteroidItem = (props: IAsteroidItem) => {
         </div>
       </div>
       <div className={styles.asteroidOptions}>
-        {/* {isOrdered === null && (
-          <button className={styles.order} disabled={true}>
-            Загрузка...
-          </button>
-        )} */}
-        {isOrdered === false && (
+        {isOrdered === false && showButton && (
           <button
             className={`${styles.order} ${isInCart && styles.orderActive}`}
             type="submit"
@@ -107,7 +103,7 @@ const AsteroidItem = (props: IAsteroidItem) => {
             {isInCart ? 'В Корзине' : 'Заказать'}
           </button>
         )}
-        {isOrdered && (
+        {isOrdered && showButton && (
           <button
             className={`${styles.order} ${styles.orderActive}`}
             disabled={true}

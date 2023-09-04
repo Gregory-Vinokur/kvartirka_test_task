@@ -9,6 +9,7 @@
   gap: 2.4rem;
   overflow-y: scroll;
   max-height: 57rem;
+  overflow-x: hidden;
 }
 
 .asteroidListTitle {
@@ -41,4 +42,16 @@
 .asteroidItems::-webkit-scrollbar-thumb {
   border-radius: 20px;
   border: 3px solid var(--color-secondary);
+}
+
+@media (max-width: 32.5em) {
+  .asteroidList {
+    max-width: 30rem;
+  }
+}
+
+@media (max-width: 27.5em) {
+  .asteroidList {
+    max-width: 27rem;
+  }
 }

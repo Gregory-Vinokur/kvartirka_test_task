@@ -11,11 +11,6 @@ type AsteroidDetailsProps = {
 const AsteroidDetails = ({ asteroid }: AsteroidDetailsProps) => {
   return (
     <div className={styles.container}>
-      <div className={styles.buttonContainer}>
-        <Link href={'/'}>
-          <button className={styles.button}>Назад</button>
-        </Link>
-      </div>
       <div>
         <Image alt="asteroid" src={AsteroidImage} width={60} height={70} />
       </div>

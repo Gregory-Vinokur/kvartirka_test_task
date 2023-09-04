@@ -13,4 +13,5 @@ export interface IAsteroidItem {
   };
   fullApproachDate?: string;
   orbitingBody?: string;
+  showButton?: boolean;
 }

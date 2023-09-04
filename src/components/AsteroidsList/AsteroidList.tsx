@@ -83,6 +83,7 @@ const AsteroidList = ({ asteroids }: AsteroidsListDataType) => {
             diameter={asteroid.diameter}
             isHazard={asteroid.isHazard}
             distanceUnit={distanceUnit}
+            showButton={true}
           />
         ))}
         {isLoading && <ProgressBar />}

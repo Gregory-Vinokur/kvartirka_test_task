@@ -14,23 +14,9 @@
   font-size: 1.8rem;
 }
 
-.buttonContainer {
-  position: absolute;
-  left: 4rem;
-}
-
-.button {
-  background-color: var(--color-secondary);
-  color: var(--color-primary);
-  padding: 6px 20px;
-  border-radius: 50px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: all 300ms ease-in-out 0ms;
-  border: none;
-  cursor: pointer;
-}
-
-.button:hover {
-  opacity: 0.7;
+@media (max-width: 32.5em) {
+  .container {
+    padding: 0.6rem;
+    gap: 2rem;
+  }
 }
